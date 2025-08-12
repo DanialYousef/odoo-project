@@ -1,0 +1,44 @@
+<odoo>
+    <record id="change_state_view_tree" model="ir.ui.view">
+        <field name="name">change state tree</field>
+        <field name="model" >change.state</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="property_id" invisible="1"/>
+                <field name="state" required="1"/>
+                <field name="reason" required="1"/>
+            </tree>
+        </field>
+
+    </record>
+       <record id="change_state_view_form" model="ir.ui.view">
+        <field name="name">change state form</field>
+        <field name="model" >change.state</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <sheet>
+                    <group>
+                        <group>
+                           <field name="property_id" invisible="1"/>
+                            <field name="state" required="1"/>
+                            <field name="reason" required="1"/>
+                        </group>
+                        <group>
+                            <footer>
+                                <button string="Confirm" type="object" name="action_confirm" class="btn-primary"/>
+                                <button string="Cancel" specile="cancel"  class="btn-secondary"/>
+                            </footer>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+
+    </record>
+    <record id="change_state_action" model="ir.actions.act_window">
+        <field name="name">change state action</field>
+        <field name="res_model">change.state</field>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>

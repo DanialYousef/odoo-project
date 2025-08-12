@@ -1,0 +1,1020 @@
+2025-07-11 06:07:46,822 836 INFO ? odoo: Odoo version 16.0 
+2025-07-11 06:07:46,822 836 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 06:07:46,823 836 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 06:07:46,823 836 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 06:07:47,801 836 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 06:07:48,610 836 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 06:07:48,670 836 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 06:07:48,671 836 INFO dodo odoo.modules.registry: Registry loaded in 0.077s 
+2025-07-11 06:08:30,028 836 INFO dodo odoo.service.server: Initiating shutdown 
+2025-07-11 06:08:30,028 836 INFO dodo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-07-11 06:08:30,530 836 INFO dodo odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 3 connections  
+2025-07-11 06:08:34,095 5596 INFO ? odoo: Odoo version 16.0 
+2025-07-11 06:08:34,095 5596 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 06:08:34,095 5596 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 06:08:34,095 5596 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 06:08:34,484 5596 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 06:08:34,872 5596 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 06:08:35,101 5596 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 06:08:35,102 5596 INFO dodo odoo.modules.registry: Registry loaded in 0.235s 
+2025-07-11 06:09:35,225 5596 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 06:09:35,226 5596 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 06:09:36,485 5596 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 06:09:36,486 5596 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:25:58,941 7960 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:25:58,942 7960 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:25:58,942 7960 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:25:58,942 7960 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:25:59,390 7960 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:25:59,999 7960 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:26:00,160 7960 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:26:00,160 7960 INFO dodo odoo.modules.registry: Registry loaded in 0.167s 
+2025-07-11 09:26:28,786 7960 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:26:28,799 7960 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:26:28] "GET / HTTP/1.1" 500 - 1 0.001 0.021
+2025-07-11 09:26:28,965 7960 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:26:28,968 7960 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:26:28] "GET /favicon.ico HTTP/1.1" 500 - 1 0.000 0.007
+2025-07-11 09:26:39,286 7960 INFO dodo odoo.service.server: Initiating shutdown 
+2025-07-11 09:26:39,286 7960 INFO dodo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-07-11 09:26:40,377 7960 INFO dodo odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 3 connections  
+2025-07-11 09:27:09,136 9372 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:27:09,137 9372 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:27:09,137 9372 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:27:09,137 9372 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:27:09,428 9372 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:27:09,751 9372 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:27:09,799 9372 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:27:09,800 9372 INFO dodo odoo.modules.registry: Registry loaded in 0.054s 
+2025-07-11 09:27:25,706 9372 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:27:25,719 9372 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:27:25] "GET / HTTP/1.1" 500 - 1 0.001 0.022
+2025-07-11 09:27:25,795 9372 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:27:25,798 9372 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:27:25] "GET /favicon.ico HTTP/1.1" 500 - 1 0.001 0.010
+2025-07-11 09:28:02,996 9372 INFO dodo odoo.service.server: Initiating shutdown 
+2025-07-11 09:28:02,997 9372 INFO dodo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-07-11 09:28:03,109 9372 INFO dodo odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 3 connections  
+2025-07-11 09:28:06,873 8784 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:28:06,873 8784 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:28:06,874 8784 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:28:06,874 8784 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:28:07,210 8784 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:28:07,648 8784 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:28:07,730 8784 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:28:07,730 8784 INFO dodo odoo.modules.registry: Registry loaded in 0.098s 
+2025-07-11 09:29:07,830 8784 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:29:07,830 8784 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:29:08,947 8784 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:29:08,950 8784 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:29:37,535 8784 INFO dodo odoo.service.server: Initiating shutdown 
+2025-07-11 09:29:37,535 8784 INFO dodo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-07-11 09:29:37,847 8784 INFO dodo odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 3 connections  
+2025-07-11 09:29:57,175 1968 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:29:57,175 1968 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:29:57,175 1968 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:29:57,176 1968 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:29:57,799 1968 WARNING ? py.warnings: C:\Program Files\Python310\lib\site-packages\reportlab\platypus\paraparser.py:54: DeprecationWarning: invalid escape sequence '\s'
+  File "C:\Program Files\JetBrains\PyCharm 2025.1.1.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2270, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm 2025.1.1.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2252, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm 2025.1.1.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1563, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm 2025.1.1.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1570, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm 2025.1.1.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\odoo\odoo-16.0\odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "C:\odoo\odoo-16.0\odoo\cli\command.py", line 66, in main
+    o.run(args)
+  File "C:\odoo\odoo-16.0\odoo\cli\server.py", line 187, in run
+    main(args)
+  File "C:\odoo\odoo-16.0\odoo\cli\server.py", line 180, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "C:\odoo\odoo-16.0\odoo\service\server.py", line 1373, in start
+    load_server_wide_modules()
+  File "C:\odoo\odoo-16.0\odoo\service\server.py", line 1275, in load_server_wide_modules
+    odoo.modules.module.load_openerp_module(m)
+  File "C:\odoo\odoo-16.0\odoo\modules\module.py", line 471, in load_openerp_module
+    __import__('odoo.addons.' + module_name)
+  File "C:\odoo\odoo-16.0\odoo\addons\base\__init__.py", line 5, in <module>
+    from . import models
+  File "C:\odoo\odoo-16.0\odoo\addons\base\models\__init__.py", line 11, in <module>
+    from . import ir_actions_report
+  File "C:\odoo\odoo-16.0\odoo\addons\base\models\ir_actions_report.py", line 25, in <module>
+    from reportlab.graphics.barcode import createBarcodeDrawing
+  File "C:\Program Files\Python310\lib\site-packages\reportlab\graphics\barcode\__init__.py", line 76, in <module>
+    _reset()
+  File "C:\Program Files\Python310\lib\site-packages\reportlab\graphics\barcode\__init__.py", line 42, in _reset
+    from reportlab.graphics.barcode.widgets import BarcodeI2of5, BarcodeCode128, BarcodeStandard93,\
+  File "C:\Program Files\Python310\lib\site-packages\reportlab\graphics\barcode\widgets.py", line 23, in <module>
+    from reportlab.graphics.shapes import Line, Rect, Group, NotImplementedError, String
+  File "C:\Program Files\Python310\lib\site-packages\reportlab\graphics\shapes.py", line 12, in <module>
+    from reportlab.platypus import Flowable
+  File "C:\Program Files\Python310\lib\site-packages\reportlab\platypus\__init__.py", line 10, in <module>
+    from .paragraph import *
+  File "C:\Program Files\Python310\lib\site-packages\reportlab\platypus\paragraph.py", line 16, in <module>
+    from reportlab.platypus.paraparser import ParaParser, _PCT, _num as _parser_num, _re_us_value
+  File "C:\Program Files\Python310\lib\warnings.py", line 109, in _showwarnmsg
+    sw(msg.message, msg.category, msg.filename, msg.lineno,
+  File "C:\odoo\odoo-16.0\odoo\netsvc.py", line 323, in showwarning_with_traceback
+    for frame in traceback.extract_stack():
+ 
+2025-07-11 09:29:58,382 1968 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:30:00,930 1968 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:30:00,973 1968 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:30:00,973 1968 INFO dodo odoo.modules.registry: Registry loaded in 0.094s 
+2025-07-11 09:30:12,870 1968 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:30:12,881 1968 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:30:12] "GET / HTTP/1.1" 500 - 1 0.001 0.022
+2025-07-11 09:30:12,942 1968 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:30:12,947 1968 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:30:12] "GET /favicon.ico HTTP/1.1" 500 - 1 0.001 0.009
+2025-07-11 09:30:14,705 1968 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:30:14,712 1968 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:30:14] "GET / HTTP/1.1" 500 - 1 0.002 0.018
+2025-07-11 09:30:15,028 1968 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:30:15,035 1968 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:30:15] "GET /favicon.ico HTTP/1.1" 500 - 1 0.002 0.014
+2025-07-11 09:30:41,024 3540 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:30:41,024 3540 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:30:41,024 3540 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:30:41,025 3540 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:30:41,732 3540 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:30:42,664 3540 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:30:42,691 3540 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:30:42,692 3540 INFO dodo odoo.modules.registry: Registry loaded in 0.061s 
+2025-07-11 09:31:01,278 3540 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:31:01,285 3540 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:31:01] "GET / HTTP/1.1" 500 - 1 0.000 0.012
+2025-07-11 09:31:01,322 3540 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:31:01,326 3540 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:31:01] "GET /favicon.ico HTTP/1.1" 500 - 1 0.000 0.009
+2025-07-11 09:31:20,081 3540 INFO dodo odoo.service.server: Initiating shutdown 
+2025-07-11 09:31:20,081 3540 INFO dodo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-07-11 09:31:21,146 3540 INFO dodo odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 3 connections  
+2025-07-11 09:32:12,824 10492 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:32:12,825 10492 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:32:12,825 10492 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:32:12,825 10492 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:32:13,222 10492 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:32:13,735 10492 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:32:13,822 10492 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:32:13,823 10492 INFO dodo odoo.modules.registry: Registry loaded in 0.095s 
+2025-07-11 09:32:45,489 10492 INFO dodo odoo.service.server: Initiating shutdown 
+2025-07-11 09:32:45,490 10492 INFO dodo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-07-11 09:32:45,770 10492 INFO dodo odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 3 connections  
+2025-07-11 09:32:54,962 9248 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:32:54,963 9248 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:32:54,963 9248 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:32:54,963 9248 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:32:55,249 9248 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:32:55,582 9248 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:32:55,633 9248 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:32:55,633 9248 INFO dodo odoo.modules.registry: Registry loaded in 0.056s 
+2025-07-11 09:33:55,683 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:33:55,684 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:33:56,743 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:33:56,744 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:34:55,693 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:34:55,694 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:34:57,783 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:34:57,784 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:35:55,708 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:35:55,709 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:35:58,807 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:35:58,808 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:36:55,719 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:36:55,720 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:36:59,832 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:36:59,832 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:37:55,726 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:37:55,727 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:38:00,852 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:38:00,852 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:38:55,737 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:38:55,738 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:39:01,871 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:39:01,871 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:39:38,039 6288 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:39:38,039 6288 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:39:38,039 6288 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:39:38,039 6288 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:39:38,430 6288 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:39:38,712 6288 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:39:38,770 6288 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:39:38,770 6288 INFO dodo odoo.modules.registry: Registry loaded in 0.063s 
+2025-07-11 09:39:55,752 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:39:55,753 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:40:02,992 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:40:03,020 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:40:38,833 6288 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:40:38,834 6288 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:40:39,887 6288 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:40:39,888 6288 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:40:55,758 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:40:55,759 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:41:04,040 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:41:04,040 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:41:37,101 8216 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:41:37,101 8216 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:41:37,101 8216 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:41:37,101 8216 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:41:37,513 8216 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:41:37,833 8216 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:41:37,885 8216 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:41:37,886 8216 INFO dodo odoo.modules.registry: Registry loaded in 0.058s 
+2025-07-11 09:41:55,774 9248 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:41:55,774 9248 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:41:56,185 9248 INFO dodo odoo.service.server: Initiating shutdown 
+2025-07-11 09:41:56,185 9248 INFO dodo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-07-11 09:41:56,608 9248 INFO dodo odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 3 connections  
+2025-07-11 09:42:04,447 9952 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:42:04,447 9952 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:42:04,447 9952 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:42:04,447 9952 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:42:04,878 9952 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:42:05,388 9952 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:42:05,590 9952 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:42:05,591 9952 INFO dodo odoo.modules.registry: Registry loaded in 0.209s 
+2025-07-11 09:42:38,090 8216 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:42:38,091 8216 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:42:39,157 8216 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:42:39,158 8216 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:43:05,660 9952 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:43:05,661 9952 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:43:06,731 9952 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:43:06,732 9952 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:43:38,101 8216 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:43:38,101 8216 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:43:40,174 8216 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:43:40,174 8216 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:44:05,675 9952 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:44:05,675 9952 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:44:07,757 9952 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:44:07,757 9952 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:44:38,007 6576 DEBUG ? odoo.netsvc: logger level set: "odoo.http.rpc.request:INFO" 
+2025-07-11 09:44:38,008 6576 DEBUG ? odoo.netsvc: logger level set: "odoo.http.rpc.response:INFO" 
+2025-07-11 09:44:38,008 6576 DEBUG ? odoo.netsvc: logger level set: ":INFO" 
+2025-07-11 09:44:38,008 6576 DEBUG ? odoo.netsvc: logger level set: "odoo:DEBUG" 
+2025-07-11 09:44:38,008 6576 DEBUG ? odoo.netsvc: logger level set: "odoo.sql_db:INFO" 
+2025-07-11 09:44:38,008 6576 DEBUG ? odoo.netsvc: logger level set: ":INFO" 
+2025-07-11 09:44:38,009 6576 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:44:38,009 6576 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:44:38,009 6576 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:44:38,009 6576 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:44:38,280 6576 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:44:38,592 6576 DEBUG ? odoo.service.server: Setting signal handlers 
+2025-07-11 09:44:38,598 6576 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:44:38,649 6576 DEBUG dodo odoo.modules.registry: Multiprocess load registry signaling: [Registry: 1] [Cache: 1] 
+2025-07-11 09:44:38,650 6576 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:44:38,651 6576 INFO dodo odoo.modules.registry: Registry loaded in 0.059s 
+2025-07-11 09:44:38,652 6576 DEBUG dodo odoo.service.server: cron0 started! 
+2025-07-11 09:44:38,653 6576 DEBUG dodo odoo.service.server: cron1 started! 
+2025-07-11 09:45:05,680 9952 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:45:05,680 9952 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:45:08,777 9952 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:45:08,778 9952 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:46:05,690 9952 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:46:05,690 9952 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:46:09,804 9952 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:46:09,805 9952 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:46:43,844 9392 DEBUG ? odoo.netsvc: logger level set: "odoo.http.rpc.request:INFO" 
+2025-07-11 09:46:43,844 9392 DEBUG ? odoo.netsvc: logger level set: "odoo.http.rpc.response:INFO" 
+2025-07-11 09:46:43,844 9392 DEBUG ? odoo.netsvc: logger level set: ":INFO" 
+2025-07-11 09:46:43,844 9392 DEBUG ? odoo.netsvc: logger level set: "odoo:DEBUG" 
+2025-07-11 09:46:43,844 9392 DEBUG ? odoo.netsvc: logger level set: "odoo.sql_db:INFO" 
+2025-07-11 09:46:43,844 9392 DEBUG ? odoo.netsvc: logger level set: ":INFO" 
+2025-07-11 09:46:43,845 9392 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:46:43,845 9392 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:46:43,845 9392 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:46:43,845 9392 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:46:44,137 9392 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:46:44,467 9392 DEBUG ? odoo.service.server: Setting signal handlers 
+2025-07-11 09:46:44,474 9392 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:46:44,526 9392 DEBUG dodo odoo.modules.registry: Multiprocess load registry signaling: [Registry: 1] [Cache: 1] 
+2025-07-11 09:46:44,528 9392 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:46:44,529 9392 INFO dodo odoo.modules.registry: Registry loaded in 0.061s 
+2025-07-11 09:46:44,530 9392 DEBUG dodo odoo.service.server: cron0 started! 
+2025-07-11 09:46:44,531 9392 DEBUG dodo odoo.service.server: cron1 started! 
+2025-07-11 09:47:05,696 9952 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:47:05,696 9952 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:47:10,830 9952 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:47:10,831 9952 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:47:44,587 9392 DEBUG ? odoo.service.server: cron0 polling for jobs 
+2025-07-11 09:47:44,591 9392 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:47:44,591 9392 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:47:45,643 9392 DEBUG ? odoo.service.server: cron1 polling for jobs 
+2025-07-11 09:47:45,644 9392 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:47:45,644 9392 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:48:05,705 9952 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:48:05,705 9952 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:48:11,856 9952 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:48:11,857 9952 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:48:44,598 9392 DEBUG ? odoo.service.server: cron0 polling for jobs 
+2025-07-11 09:48:44,599 9392 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:48:44,599 9392 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:48:46,665 9392 DEBUG ? odoo.service.server: cron1 polling for jobs 
+2025-07-11 09:48:46,668 9392 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:48:46,669 9392 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:48:58,703 9952 INFO dodo odoo.service.server: Initiating shutdown 
+2025-07-11 09:48:58,703 9952 INFO dodo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-07-11 09:48:59,047 9952 INFO dodo odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 3 connections  
+2025-07-11 09:49:02,301 4288 INFO ? odoo: Odoo version 16.0 
+2025-07-11 09:49:02,301 4288 INFO ? odoo: Using configuration file at C:\odoo\odoo.conf 
+2025-07-11 09:49:02,302 4288 INFO ? odoo: addons paths: ['C:\\odoo\\odoo-16.0\\odoo\\addons', 'c:\\users\\toptech\\appdata\\local\\openerp s.a\\odoo\\addons\\16.0', 'c:\\odoo\\odoo-16.0\\addons', 'c:\\odoo\\odoo-16.0\\odoo\\addons'] 
+2025-07-11 09:49:02,302 4288 INFO ? odoo: database: danial@localhost:5432 
+2025-07-11 09:49:02,633 4288 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-07-11 09:49:02,998 4288 INFO ? odoo.service.server: HTTP service (werkzeug) running on DESKTOP-F18I14V:8069 
+2025-07-11 09:49:03,064 4288 ERROR dodo odoo.modules.loading: Database dodo not initialized, you can force it with `-i base` 
+2025-07-11 09:49:03,064 4288 INFO dodo odoo.modules.registry: Registry loaded in 0.072s 
+2025-07-11 09:49:25,463 4288 INFO dodo odoo.service.server: Initiating shutdown 
+2025-07-11 09:49:25,463 4288 INFO dodo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-07-11 09:49:25,483 4288 INFO dodo odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 3 connections  
+2025-07-11 09:49:44,603 9392 DEBUG ? odoo.service.server: cron0 polling for jobs 
+2025-07-11 09:49:44,606 9392 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:49:44,607 9392 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:49:47,698 9392 DEBUG ? odoo.service.server: cron1 polling for jobs 
+2025-07-11 09:49:47,701 9392 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:49:47,702 9392 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:49:50,928 9392 DEBUG ? odoo.http: HTTP sessions stored in: c:\users\toptech\appdata\local\openerp s.a\odoo\sessions 
+2025-07-11 09:49:50,930 9392 DEBUG ? odoo.modules.registry: Multiprocess signaling check: [Registry - 1 -> 1] [Cache - 1 -> 1] 
+2025-07-11 09:49:50,932 9392 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:49:50,940 9392 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:49:50] "GET / HTTP/1.1" 500 - 1 0.000 0.014
+2025-07-11 09:49:50,991 9392 DEBUG ? odoo.modules.registry: Multiprocess signaling check: [Registry - 1 -> 1] [Cache - 1 -> 1] 
+2025-07-11 09:49:50,992 9392 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:49:50,993 9392 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:49:50] "GET /favicon.ico HTTP/1.1" 500 - 1 0.001 0.003
+2025-07-11 09:49:52,950 9392 DEBUG ? odoo.modules.registry: Multiprocess signaling check: [Registry - 1 -> 1] [Cache - 1 -> 1] 
+2025-07-11 09:49:52,952 9392 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:49:52,958 9392 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:49:52] "GET / HTTP/1.1" 500 - 1 0.002 0.011
+2025-07-11 09:49:53,262 9392 DEBUG ? odoo.modules.registry: Multiprocess signaling check: [Registry - 1 -> 1] [Cache - 1 -> 1] 
+2025-07-11 09:49:53,264 9392 ERROR dodo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1824, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "C:\odoo\odoo-16.0\odoo\service\model.py", line 152, in retrying
+    result = func()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1837, in _serve_ir_http
+    ir_http = self.registry['ir.http']
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 2237, in __call__
+    response = request._serve_db()
+  File "C:\odoo\odoo-16.0\odoo\http.py", line 1829, in _serve_db
+    exc.error_response = self.registry['ir.http']._handle_error(exc)
+  File "C:\odoo\odoo-16.0\odoo\modules\registry.py", line 186, in __getitem__
+    return self.models[model_name]
+KeyError: 'ir.http'
+2025-07-11 09:49:53,267 9392 INFO dodo werkzeug: 127.0.0.1 - - [11/Jul/2025 09:49:53] "GET /favicon.ico HTTP/1.1" 500 - 1 0.000 0.007
+2025-07-11 09:50:44,617 9392 DEBUG ? odoo.service.server: cron0 polling for jobs 
+2025-07-11 09:50:44,620 9392 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:50:44,621 9392 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
+2025-07-11 09:50:48,721 9392 DEBUG ? odoo.service.server: cron1 polling for jobs 
+2025-07-11 09:50:48,724 9392 ERROR dodo odoo.sql_db: bad query: 
+            SELECT latest_version
+            FROM ir_module_module
+             WHERE name='base'
+        
+ERROR: relation "ir_module_module" does not exist
+LINE 3:             FROM ir_module_module
+                         ^
+ 
+2025-07-11 09:50:48,725 9392 WARNING dodo odoo.addons.base.models.ir_cron: Tried to poll an undefined table on database dodo. 
