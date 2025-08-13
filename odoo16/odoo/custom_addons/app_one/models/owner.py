@@ -7,7 +7,7 @@ class Owner(models.Model):
 
     name = fields.Char(required = 1)
     phone = fields.Char(required = 1)
-    address = fields.Char()
+    address = fields.Char(default="Syria")
     property_ids = fields.One2many(comodel_name='property' , inverse_name='owner_id')
 
 
