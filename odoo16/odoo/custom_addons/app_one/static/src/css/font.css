@@ -1,0 +1,12 @@
+@font-face{
+font-family:"SansCode_Bold"
+src : url(\app_one\static\src\fonts\GoogleSansCode-Bold.ttf)
+}
+@font-face{
+font-family:"SansCode_italic"
+src : url(\app_one\static\src\fonts\GoogleSansCode-italic.ttf)
+}
+@font-face{
+font-family:"SansCode_light"
+src : url(\app_one\static\src\fonts\GoogleSansCode-Light.ttf)
+}

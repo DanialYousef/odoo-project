@@ -13,16 +13,16 @@
             <t t-call="web.external_layout">
                  <t t-foreach="docs" t-as="rec">
                      <div>
-                         <h1 class="report-title">Property name</h1>
+                         <h1 class="report-title" style="font-family:SansCode_Bold">Property name</h1>
                          <table class="general-info">
                              <thead>
                                  <tr>
-                                     <th colspan="4" class="section-title">General Information</th>
+                                     <th colspan="4" class="section-title" style="font-family:SansCode_italic">General Information</th>
                                  </tr>
                              </thead>
                              <tbody>
                                  <tr>
-                                     <td class="label">Name : </td>
+                                     <td class="label" style="font-family:SansCode_light">Name : </td>
                                      <td class="value"><t t-esc="rec.name"/></td>
                                      <td class="label">Post Code :</td>
                                      <td class="value"><t t-esc="rec.postcode"/></td>
