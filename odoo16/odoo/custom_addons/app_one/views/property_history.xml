@@ -3,7 +3,7 @@
         <field name="name">property history tree</field>
         <field name="model" >property.history</field>
         <field name="arch" type="xml">
-            <tree create="0" edit="0" delete="0">
+            <tree create="0" edit="0" delete="1">
                 <field name="user_id"/>
                 <field name="property_id"/>
                 <field name="old_state"/>

@@ -87,6 +87,7 @@ class Property(models.Model):
 
     def actions_draft(self):
         for rec in self:
+            print(rec)
             rec.create_property_history(rec.state , 'draft' , '')
             rec.state = 'draft'
 
