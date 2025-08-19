@@ -41,6 +41,7 @@
                     <header>
                         <field name="state" invisible="1"/>
                         <button name="action_search" type="object" class="btn-primary" string="Action"/>
+                        <button name="action_test_api" type="object" class="btn-primary" string="Action Test Api"/>
                         <button name="actions_draft" type="object" class="btn-primary" string="Set To Draft" attrs="{'invisible' :[('state','=' ,'draft' )]}" />
                         <button name="actions_pending" type="object" class="btn-secondary" string="Set To Pending"/>
                         <button name="actions_sold" type="object" class="btn-success" string="Set To Sold" />

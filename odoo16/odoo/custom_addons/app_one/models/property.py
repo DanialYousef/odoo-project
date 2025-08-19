@@ -1,3 +1,4 @@
+import requests
 from pkg_resources import require
 
 from odoo import models , fields ,api
@@ -148,6 +149,18 @@ class Property(models.Model):
     #     res =super(Property , self).unlink()
     #     print("inside unlink method")
     #     return res
+
+    def action_test_api(self):
+        payload =dict()
+        try:
+            response = requests.get("http://localhost:8069/v1/property/list", data=payload)
+            print(response.content)
+            if response.status_code == 200:
+                print("successfully")
+            else:
+                print("failer")
+        except Exception as error:
+            raise ValidationError(str(error))
 
 
 class PropertyLine(models.Model):
