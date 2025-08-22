@@ -4,6 +4,9 @@
         <field name="model">property</field>
         <field name="arch" type="xml">
             <tree class="header_custom" decoration-danger="(is_late)">
+                <header>
+                    <button name="generate_excel_reports" type="object" class="btn-primary" string="Excel Report"/>
+                </header>
                 <field name="name"/>
                 <field name="owner_id"/>
                 <field name="tag_ids"/>

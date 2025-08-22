@@ -11,11 +11,7 @@
         'security/ir.model.access.csv',
         'views/base_menu.xml',
         'views/todo_view.xml',
-
-
-
-
-
+        'wizard/change_users_view.xml',
     ],
     'application': True,
 }

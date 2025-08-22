@@ -11,7 +11,7 @@ class TodoModel(models.Model):
     name=fields.Char()
     description = fields.Text()
     date = fields.Date()
-    res_partner = fields.Many2one('res.partner')
+    res_partner = fields.Many2one('res.partner' , default=lambda self: self.env.user.partner_id)
     lines_ids = fields.One2many('todo.lines'  , 'todo_id')
     total_hour = fields.Float(default=5)
     state = fields.Selection([
@@ -47,8 +47,10 @@ class TodoModel(models.Model):
                 if sum > rec.total_hour:
                     raise ValidationError("Total hour cannot be more than total hour")
 
-
-
+    def change_action_users_wizard(self):
+        action = self.env['ir.actions.actions']._for_xml_id('todo_app.action_change_partner_wizard')
+        action['context'] = {'default_todo_ids': self.ids}
+        return action
 class TodoLines(models.Model):
     _name='todo.lines'
 

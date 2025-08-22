@@ -1,4 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_todo,access_todo,model_todo,,1,1,1,1
 access_todo_lines,access_todo_lines,model_todo_lines,,1,1,1,1
+access_change_users_wizard,access_change_users_wizard,model_change_users_wizard,,1,1,1,1
+
+
 

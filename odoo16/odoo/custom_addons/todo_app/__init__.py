@@ -1,1 +1,1 @@
-from . import modules
+from . import modules , wizard

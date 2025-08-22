@@ -19,6 +19,28 @@ class PropertyApi(http.Controller):
             return True
         else: return False
 
+    # @http.route("/v1/property/http" , methods=["POST"] , type="http" , auth="none" , csrf=False )
+    # def property_create_endpoint(self):
+    #     args = request.httprequest.data.decode()
+    #     vals = json.loads(args)
+    #     if self.validation_name(vals):
+    #         return request.make_json_response({
+    #             "message": "column name is required",
+    #         }, status=400)
+    #     try:
+    #         res =  request.env['property'].sudo().create(vals)
+    #         if res:
+    #             return request.make_json_response({
+    #                 "message" : "success",
+    #                 "id" : res.id,
+    #                 "name" : res.name
+    #             },status =201)
+    #         return None
+    #     except Exception as error:
+    #         return request.make_json_response({
+    #             "message": error
+    #
+    #         }, status=400)
     @http.route("/v1/property/http" , methods=["POST"] , type="http" , auth="none" , csrf=False )
     def property_create_endpoint(self):
         args = request.httprequest.data.decode()
@@ -28,12 +50,19 @@ class PropertyApi(http.Controller):
                 "message": "column name is required",
             }, status=400)
         try:
-            res =  request.env['property'].sudo().create(vals)
+            cr = request.env.cr
+            columns =', '.join(vals.keys())
+            values =', '.join(['%s'] * len(vals))
+            query = f"""INSERT INTO property ({columns}) VALUES ({values}) RETURNING id ,name , postcode"""
+            cr.execute(query , tuple(vals.values()))
+            res = cr.fetchone()
+            print(res)
             if res:
                 return request.make_json_response({
                     "message" : "success",
-                    "id" : res.id,
-                    "name" : res.name
+                    "id" : res[0],
+                    "name" : res[1],
+                    "postcode" :res[2]
                 },status =201)
             return None
         except Exception as error:

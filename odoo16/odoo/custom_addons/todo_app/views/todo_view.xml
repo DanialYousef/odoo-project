@@ -67,6 +67,15 @@
         </field>
 
     </record>
+     <record id="todo_change_users_multi_record" model="ir.actions.server">
+        <field name="name" >Change action server</field>
+        <field name="model_id" ref="model_todo"/>
+        <field name="binding_model_id" ref="model_todo"/>
+        <field name="state" >code</field>
+        <field name="code">
+            action = records.change_action_users_wizard()
+        </field>
+    </record>
     <record id="todo_action" model="ir.actions.act_window">
         <field name="name"> todo action</field>
         <field name="res_model">todo</field>
