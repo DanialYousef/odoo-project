@@ -5,7 +5,7 @@
     'category': '',
     'version': '16.0.0.1.0',
     'depends' : [
-        'base' ,'sale' , 'account' , 'mail'
+        'base' ,'sale' , 'account' , 'mail' , 'web'
     ],
     'data': [
         'security/security.xml',
@@ -25,7 +25,13 @@
 
     ],
     'assets': {
-        'web.assets_backend' :['app_one\static\src\css\property.css'],
+        'web.assets_backend' :[
+            'app_one\static\src\css\property.css',
+            "app_one/static/src/components/listView/listView.js",
+            "app_one/static/src/components/listView/listView.xml",
+            'app_one\static\src\components\listView\listView.css',
+
+        ],
         'web.report_assets_common': ['app_one\\static\\src\\css\\font.css']
 
     },

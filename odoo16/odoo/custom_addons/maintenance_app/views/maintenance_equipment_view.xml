@@ -1,0 +1,63 @@
+<odoo>
+    <record id="maintenance_equipment_view_form" model="ir.ui.view">
+        <field name="name">maintenance.equipment.view.form</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="serial_number"/>
+                        <field name="owner_id"/>
+                        <field name="last_maintenance_date"/>
+                        <field name="next_maintenance_date"/>
+                    </group>
+                    <notebook>
+                        <page string="Maintenance History">
+                            <field name="maintenance_request_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="request_date"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="maintenance_equipment_view_tree" model="ir.ui.view">
+        <field name="name">maintenance.equipment.view.tree</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="serial_number"/>
+                <field name="owner_id"/>
+                <field name="next_maintenance_date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="ir_cron_run_maintenance_check" model="ir.cron">
+        <field name="name">Daily Maintenance Check</field>
+        <field name="model_id" ref="maintenance_app.model_maintenance_equipment"/>
+        <field name="state">code</field>
+        <field name="code">model.run_scheduled_maintenance_check()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="True"/>
+    </record>
+
+    <record id="maintenance_equipment_action_window" model="ir.actions.act_window">
+        <field name="name">Maintenance Equipment</field>
+        <field name="res_model">maintenance.equipment</field>
+    </record>
+    <menuitem
+            id="menu_maintenance_equipment_root"
+            name="Equipment"
+            parent="menu_maintenance_root"
+            action="maintenance_equipment_action_window"/>
+</odoo>

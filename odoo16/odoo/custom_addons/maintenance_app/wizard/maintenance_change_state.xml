@@ -1,0 +1,30 @@
+<odoo>
+    <record id="from_view_wizard" model="ir.ui.view">
+        <field name="name">form view</field>
+        <field name="model">maintenance.change.state</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="maintenance_ids" invisible="1"/>
+                            <field name="new_state"/>
+                        </group>
+                        <group>
+                            <footer>
+                                <button string="Confirm" type="object" name="confirm_action_change_state" class="btn-primary"/>
+                                <button string="Cancel" specile="cancel"  class="btn-secondary"/>
+                            </footer>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_change_state_in_main" model="ir.actions.act_window">
+        <field name="name">change state in main</field>
+        <field name="res_model">maintenance.change.state</field>
+        <field name="target">new</field>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>

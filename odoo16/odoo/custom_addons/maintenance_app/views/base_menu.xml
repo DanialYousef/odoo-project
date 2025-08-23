@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem id="menu_maintenance_root"
+              name="Maintenance"
+              web_icon="fa fa-wrench"/>
+</odoo>

@@ -1,0 +1,101 @@
+<odoo>
+    <record id="maintenance_equipment_view_form" model="ir.ui.view">
+        <field name="name" >maintenance.request.view.form</field>
+        <field name="model">maintenance.request</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button name="action_in_progress"
+                            type="object"
+                            string="Start Work"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+
+                    <button name="action_done"
+                            type="object"
+                            string="Mark as Done"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'in_progress')]}"/>
+                    <button name="action_cancel"
+                            type="object"
+                            string="Cancel"
+                            attrs="{'invisible': [('state', 'in', ['done', 'cancel'])]}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="equipment_id"/>
+                        <field name="request_date"/>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="maintenance_change_state_action" model="ir.actions.server">
+        <field name="name" >Done Process</field>
+        <field name="model_id" ref="model_maintenance_request"/>
+        <field name="binding_model_id" ref="model_maintenance_request"/>
+        <field name="state" >code</field>
+        <field name="code">
+            action = records.action_to_finish_process()
+        </field>
+    </record>
+    <record id="maintenance_request_view_tree" model="ir.ui.view">
+        <field name="name">maintenance.request.view.tree</field>
+        <field name="model">maintenance.request</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="request_date"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'" decoration-warning="state == 'in_progress'"/>
+            </tree>
+        </field>
+    </record>
+    <record id="maintenance_request_view_kanban" model="ir.ui.view">
+        <field name="name">maintenance.request.view.kanban</field>
+        <field name="model">maintenance.request</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <field name="name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <field name="name"/>
+                                    </div>
+                                    <div class="o_secondary">
+                                        <field name="equipment_id"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_kanban_content">
+                                <div><field name="request_date"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="maintenance_request_action_window" model="ir.actions.act_window">
+        <field name="name">Maintenance Requests</field>
+        <field name="res_model">maintenance.request</field>
+    </record>
+    <menuitem
+            id="menu_maintenance_requests_root"
+            name="Requests"
+            parent="menu_maintenance_root"
+            action="maintenance_request_action_window"
+    />
+
+</odoo>
