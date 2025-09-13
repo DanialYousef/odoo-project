@@ -1,0 +1,47 @@
+<odoo>
+    <record id="restaurant_address_view_tree" model="ir.ui.view">
+        <field name="name">Restaurant Address tree</field>
+        <field name="model">address</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="city"/>
+                <field name="phonenumbers"/>
+                <field name="street"/>
+                <field name="address_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="restaurant_address_view_form" model="ir.ui.view">
+        <field name="name">Restaurant Address form</field>
+        <field name="model">address</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="on_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Info">
+                            <field name="city"/>
+                            <field name="phonenumbers"/>
+                            <field name="street"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="delivery_restaurant_address_cation" model="ir.actions.act_window">
+        <field name="name">Restaurant Address Action</field>
+        <field name="res_model">address</field>
+    </record>
+    <menuitem
+            id="restaurant_address_view"
+            name="Restaurant Address"
+            parent="restaurant_menu"
+            action="delivery_restaurant_address_cation"
+    />
+</odoo>

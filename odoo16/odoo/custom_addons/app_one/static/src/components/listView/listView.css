@@ -1,0 +1,43 @@
+/* Custom Odoo-like Table Style */
+.odoo-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #555;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Table Header Styles */
+.odoo-table thead th {
+    background-color: #D13011;
+    color: #343a40;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+}
+
+/* Table Body Styles */
+.odoo-table tbody tr {
+    transition: background-color 0.2s ease-in-out;
+}
+
+.odoo-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.odoo-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.odoo-table tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* First column style for better visibility */
+.odoo-table tbody tr td:first-child {
+    font-weight: 500;
+    color: #333;
+}

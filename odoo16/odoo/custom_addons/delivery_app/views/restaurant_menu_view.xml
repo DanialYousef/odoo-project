@@ -1,0 +1,51 @@
+<odoo>
+    <record id="restaurant_menu_view_tree" model="ir.ui.view">
+        <field name="name">restaurant menu tree</field>
+        <field name="model">restaurant.menu</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="type_of_food"/>
+                <field name="making_time"/>
+                <field name="menu_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="restaurant_view_form" model="ir.ui.view">
+        <field name="name">Restaurant menu form</field>
+        <field name="model">restaurant.menu</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Info">
+                            <field name="description"/>
+                            <field name="type_of_food"/>
+                        </group>
+                        <group string="menu">
+                            <field name="making_time"/>
+                            <field name="menu_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="delivery_restaurant_menu_cation" model="ir.actions.act_window">
+        <field name="name">Restaurant Menu Action</field>
+        <field name="res_model">restaurant.menu</field>
+    </record>
+    <menuitem
+            id="restaurant_menu_view"
+            name="Restaurant Menu"
+            parent="restaurant_menu"
+            action="delivery_restaurant_menu_cation"
+    />
+</odoo>

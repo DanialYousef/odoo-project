@@ -1,0 +1,49 @@
+<odoo>
+    <record id="users_view_tree" model="ir.ui.view">
+        <field name="name">Users tree</field>
+        <field name="model">delivery.customer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+    <record id="users_view_form" model="ir.ui.view">
+        <field name="name">User form</field>
+        <field name="model">delivery.customer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div>
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Address Info">
+                            <field name="phone"/>
+                            <field name="email"/>
+                        </group>
+                        <group string="Menu Info">
+                            <field name="address_ids"/>
+
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="users_action" model="ir.actions.act_window">
+        <field name="name">Users Action</field>
+        <field name="res_model">delivery.customer</field>
+    </record>
+    <menuitem
+            id="user_view"
+            name="Users"
+            parent="user_menu"
+            action="users_action"
+    />
+</odoo>

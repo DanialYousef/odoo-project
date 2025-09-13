@@ -1,0 +1,15 @@
+<odoo>
+    <record id="delivery_person_user_inherit" model="ir.ui.view">
+        <field name="name">delivery.person.user.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <field name="email" position="after">
+                <group string="Delivery Person Info">
+                    <field name="is_delivery_person"/>
+                    <field name="is_available"/>
+                </group>
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -2,7 +2,30 @@
 <templates xml:space="preserve">
     <t t-name="app_one.ListView" owl="1">
         <div>
-            <h1>Hello Danial</h1>
+            <h1>Properties</h1>
+        </div>
+        <button class="btn btn-primary m-1 p-1 " t-on-click="createRecord" >Create Record</button>
+        <div>
+            <table class="odoo-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Post Code</th>
+                        <th>Date Availability</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="state.records" t-as="record" t-key="record.id">
+                    <tr>
+                        <td><t t-esc="record.name"/></td>
+                        <td><t t-esc="record.postcode"/></td>
+                        <td><t t-esc="record.data_availability"/></td>
+                        <td><button class="btn btn-danger" t-on-click="deleteRecord.bind(this ,record.id)">Delete</button></td>
+                    </tr>
+                    </t>
+                </tbody>
+            </table>
         </div>
     </t>
 </templates>

@@ -1,0 +1,21 @@
+<odoo>
+    <menuitem
+            id="menu_item_root"
+            name="Delivery App"
+    />
+    <menuitem
+            id="restaurant_menu"
+            name="Restaurant Collection"
+            parent="menu_item_root"
+    />
+    <menuitem
+            id="user_menu"
+            name="Users"
+            parent="menu_item_root"
+    />
+    <menuitem
+            id="order_menu"
+            name="Order"
+            parent="menu_item_root"
+    />
+</odoo>

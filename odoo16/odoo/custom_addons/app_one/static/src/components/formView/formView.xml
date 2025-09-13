@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="app_one.FormView" owl="1">
+        <div class="p-3">
+            <div class="mb-3">
+                <label>Name</label>
+                <input t-model="state.name" placholder="Enter Property Name"/>
+            </div>
+            <div class="mb-3">
+                <label>PostCode</label>
+                <input t-model="state.postcode" placholder="Enter Property Postcode"/>
+            </div>
+            <div class="mb-3">
+                <label>Date Availability</label>
+                <input t-model="state.data_availability" type="date" placholder="Enter Property Date Availability"/>
+            </div>
+
+            <div class="footer">
+                <button class="btn btn-primary me-2" t-on-click="this.createRecord">Save</button>
+                <button class="btn btn-secondary me-2" t-on-click="this.cancel">Cancel</button>
+            </div>
+        </div>
+    </t>
+</templates>
