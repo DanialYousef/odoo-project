@@ -36,7 +36,7 @@
                         <group string="Info">
                             <field name="order_date"/>
                             <field name="customer_id"/>
-                            <field name="delivery_person_id"/>
+                            <field name="delivery_person_id" domain="[('is_delivery_person','=',True),('is_available','=',True)]"/>
                         </group>
                         <group string="Address">
                         </group>

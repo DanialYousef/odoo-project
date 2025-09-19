@@ -17,25 +17,24 @@ class CustomerApi(http.Controller):
             return {
                 'error' : 'Invalid or expired token.'
             }
-        print("====================")
-        print(api_session.token)
-        print("++++++++++++++++++++")
-        print(api_session.customer_id)
-        print("+++++++++++++++++++++")
-        print(api_session.customer_id.id)
-        print("+++++++++++++++++++++++")
-        print(api_session)
 
         return  api_session.customer_id
 
-    @http.route('/api/v1/order/create' , methods=['POST'] ,type='json', auth="none", csrf=False)
-    def order_create(self , **kwargs):
+    @http.route('/api/v1/order/create/<int:delivery_person_id>' , methods=['POST'] ,type='json', auth="none", csrf=False)
+    def order_create(self ,delivery_person_id , **kwargs):
+        delivery_person = request.env['res.users'].search([('id' ,'=', delivery_person_id)])
+        if not delivery_person:
+            return {
+                "message":"This delivery person is not registered."
+            }
         customer = self._validate_token()
         if not customer:
             return {
                 'error' : 'No API key provided'
             }
         print(customer)
+        delivery_gay = request.env['res.users'].search([('is_delivery_person','=',False)])
+        print(delivery_gay)
         try:
             args = request.httprequest.data.decode()
             vals = json.loads(args)
@@ -46,13 +45,15 @@ class CustomerApi(http.Controller):
             res = request.env['delivery.order'].create({
                 "name" : vals.get('name'),
                 "customer_id" : customer.id,
+                "delivery_person_id" :delivery_person_id,
                 "order_lines": vals.get('order_lines' , [])
             })
             if res:
                 return {
                     "message" : "Order created successfully",
                     "order_id": res.id,
-                    "customer_id": customer.id,
+                    "delivery_person_id": delivery_person_id,
+                    "customer_id": customer,
                 }
             else:
                 return {
@@ -62,6 +63,21 @@ class CustomerApi(http.Controller):
             return {
                 'error' : e
             }
+
+    @http.route("/api/v1/get_users" , methods=['GET'] , type='json' , auth="none" , csrf=False)
+    def get_users(self):
+        persons = request.env['res.users'].search([])
+        if not persons:
+            return {
+                "message" : "No users registered"
+            }
+        return [
+            {
+                "person_id" : person.id,
+                "person_name" : person.name,
+                "is_delivery_person" : person.is_delivery_person,
+                "is_available" : person.is_available,
+            }for person in persons]
 
     @http.route("/api/v1/get_order/<int:order_id>" , methods=['GET'] , type='json' , auth='none' , csrf=False)
     def get_order(self, order_id , **kwargs):
