@@ -133,7 +133,7 @@ class PropertyApi(http.Controller):
                  }, status=400)
              property_ids.unlink()
              return request.make_json_response({
-                 "message": "property has been deleted successfully",
+                 "message": "property has been deleted successfully.",
                  "property_id" : property_ids.id
              })
          except Exception as error:
