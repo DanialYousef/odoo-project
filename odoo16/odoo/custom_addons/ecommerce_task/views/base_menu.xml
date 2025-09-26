@@ -1,0 +1,11 @@
+<odoo>
+    <menuitem
+            id="root_menu"
+            name="Discount Task"
+    />
+    <menuitem
+            id="discount_menu"
+            name="Discount"
+            parent="root_menu"
+    />
+</odoo>
