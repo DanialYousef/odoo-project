@@ -1,0 +1,44 @@
+<odoo>
+    <record id="ecommerce_discount_tree_view" model="ir.ui.view">
+        <field name="name">ecommerce.discount.tree</field>
+        <field name="model">ecommerce.discount</field>
+        <field name="arch" type="xml">
+            <tree string="Discounts">
+                <field name="name"/>
+                <field name="discount_type"/>
+                <field name="discount_value"/>
+                <field name="apply_on_all_vendors"/>
+                <field name="vendor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ecommerce_discount_form_view" model="ir.ui.view">
+        <field name="name">ecommerce.discount.form</field>
+        <field name="model">ecommerce.discount</field>
+        <field name="arch" type="xml">
+            <form string="Discount">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="discount_type"/>
+                        <field name="discount_value"/>
+                        <field name="apply_on_all_vendors"/>
+                        <field name="vendor_id" attrs="{'invisible': [('apply_on_all_vendors', '=', True)]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ecommerce_discount_action" model="ir.actions.act_window">
+        <field name="name">Ecommerce Discounts</field>
+        <field name="res_model">ecommerce.discount</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="ecommerce_discount_menu"
+              name="Discounts"
+              parent="discount_menu"
+              action="ecommerce_discount_action"/>
+</odoo>
