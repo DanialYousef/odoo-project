@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_bonus_plan,access_sale_bonus_plan,model_sale_bonus_plan,,1,1,1,1
+access_sale_bonus_record,access_sale_bonus_record,model_sale_bonus_record,,1,1,1,1

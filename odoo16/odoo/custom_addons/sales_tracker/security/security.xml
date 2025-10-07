@@ -1,0 +1,8 @@
+<odoo>
+    <record id="sales_tracker_manger" model="res.groups">
+        <field name="name">Sales Manger</field>
+    </record>
+    <record id="sales_tracker_sales_person" model="res.groups">
+        <field name="name">Sales Person</field>
+    </record>
+</odoo>
