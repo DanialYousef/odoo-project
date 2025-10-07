@@ -1,0 +1,12 @@
+<odoo>
+    <menuitem
+            id="sales_tracker_root"
+            name="Sales Tracker"
+    />
+    <menuitem
+            id="sales_traker"
+            name="Sales Tracker"
+            parent="sales_tracker_root"
+    />
+
+</odoo>

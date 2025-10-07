@@ -1,0 +1,62 @@
+<odoo>
+    <record id="sale_plan_tree" model="ir.ui.view">
+        <field name="name">Sale Plan Tree</field>
+        <field name="model">sale.bonus.plan</field>
+        <field name="arch" type="xml">
+            <tree >
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="bonus_type"/>
+                <field name="bonus_value"/>
+                <field name="status" widget="badge" decoration-info="status == 'draft'" decoration-success="status == 'active'" decoration-danger="status == 'closed'"/>
+            </tree>
+        </field>
+    </record>
+    <record id="sale_plan_form" model="ir.ui.view">
+        <field name="name">Sale Plan Form </field>
+        <field name="model">sale.bonus.plan</field>
+        <field name="arch" type="xml">
+            <form>
+                 <header>
+                     <button name="action_compute_bonus" type="object" class="btn-success" string="Active Bonus" attrs="{'invisible' : [('status','=','active')]}"/>
+                     <button name="action_closed_plan" type="object" class="btn-primary" string="Closed Plan" attrs="{'invisible' : [('status','in',('draft','closed'))]}"/>
+                     <field name="status" widget="statusbar"/>
+                 </header>
+                <sheet>
+                    <div>
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Date Info">
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group string="Bonus Info">
+                            <field name="bonus_type"/>
+                            <field name="bonus_value"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="sale_plan_action" model="ir.actions.act_window">
+        <field name="name">Sale plan Action</field>
+        <field name="res_model">sale.bonus.plan</field>
+    </record>
+    <menuitem
+            id="sale_plan"
+            name="Sale Plan"
+            parent="sales_traker"
+            action="sale_plan_action"
+    />
+</odoo>
