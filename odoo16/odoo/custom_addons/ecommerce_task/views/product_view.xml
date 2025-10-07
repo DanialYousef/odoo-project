@@ -29,7 +29,6 @@
             <xpath expr="//kanban" position="inside">
                 <field name="variant_qty_text"/>
             </xpath>
-        <!-- داخل الكارد، تحت الاسم مثلاً -->
             <xpath expr="//div[@name='product_lst_price']" position="inside">
                 <div class="o_variant_qty_text" style="margin-top:4px; white-space:pre-line; font-size:12px;">
                    <field name="variant_qty_text"/>

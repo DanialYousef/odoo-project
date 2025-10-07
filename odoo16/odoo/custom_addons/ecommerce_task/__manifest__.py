@@ -5,7 +5,7 @@
     'category': '',
     'version': '16.0.0.1.0',
     'depends' : [
-        'base' , 'product' , 'website_sale' , 'stock' ,'sale' , 'website_sale'
+        'base' , 'product' , 'website_sale' , 'stock' ,'sale' , 'website_sale' ,'web'
     ],
     'data': [
         'views/base_menu.xml',

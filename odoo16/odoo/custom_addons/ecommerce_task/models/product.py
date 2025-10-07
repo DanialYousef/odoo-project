@@ -43,7 +43,6 @@ class Product(models.Model):
     def _compute_variant_qty_lines(self):
         VariantQtyLine = self.env['product.variant.qty.line']
         for template in self:
-            # نحذف الصفوف القديمة
             template.variant_qty_lines = False
             lines = []
             for variant in template.product_variant_ids:
