@@ -36,10 +36,25 @@
                             <field name="end_date"/>
                         </group>
                         <group string="Bonus Info">
+                            <field name="currency_id" invisible="1"/>
                             <field name="bonus_type"/>
                             <field name="bonus_value"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Accounting">
+                            <group>
+                                <group string="Journal Info">
+                                    <field name="journal_id"/>
+                                    <field name="moved_id" invisible="1"/>
+                                </group>
+                                <group string="Accounts Info">
+                                    <field name="expense_account_id"/>
+                                    <field name="payable_account_id"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
