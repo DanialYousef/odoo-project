@@ -2,7 +2,7 @@
     <record id="sale_tracker_report" model="ir.actions.report">
         <field name="name">Bonus Record Report</field>
         <field name="model">sale.bonus.record</field>
-        <field name="report_type">qweb-html</field>
+        <field name="report_type">qweb-pdf</field>
         <field name="binding_model_id" ref="model_sale_bonus_record"/>
         <field name="binding_type">report</field>
         <field name="report_name">sales_tracker.bonus_report_template</field>
@@ -12,93 +12,84 @@
         <t t-call="web.html_container">
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="rec">
-                    <div>
-                         <h1 class="report-title">Sale Bonus Detail</h1>
-                         <table class="general-info">
-                             <thead>
-                                 <tr>
-                                     <th colspan="4" class="section-title" style="font-family:SansCode_italic">Personal Information</th>
-                                 </tr>
-                             </thead>
-                             <tbody>
-                                 <tr>
-                                     <td class="label" style="font-family:SansCode_light">plan : </td>
-                                     <td class="value"><t t-esc="rec.plan_id.name"/></td>
-                                     <td class="label">Partner :</td>
-                                     <td class="value"><t t-esc="rec.partner_id.name"/></td>
-                                 </tr>
-                             </tbody>
-                             <thead>
-                                 <tr>
-                                     <th colspan="4" class="section-title">Bonus Information</th>
-                                 </tr>
-                             </thead>
-                             <tbody>
-                                 <tr>
-                                     <td class="label">Total Sales : </td>
-                                     <td class="value"><t t-esc="rec.total_sales"/></td>
-                                     <td class="label">Calculated Bonus :</td>
-                                     <td class="value"><t t-esc="rec.calculated_bonus"/></td>
-                                 </tr>
-                             </tbody>
-                         </table >
-                     </div>
+                    <div class="report-container">
+                        <h1 class="report-title">Sale Bonus Detail</h1>
+
+                        <h2 class="section-title">Personal Information</h2>
+                        <table class="info-table">
+                            <tbody>
+                                <tr>
+                                    <td class="label">Plan:</td>
+                                    <td><t t-esc="rec.plan_id.name"/></td>
+                                    <td class="label">Partner:</td>
+                                    <td><t t-esc="rec.partner_id.name"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h2 class="section-title">Bonus Information</h2>
+                        <table class="info-table">
+                            <tbody>
+                                <tr>
+                                    <td class="label">Total Sales:</td>
+                                    <td><t t-esc="rec.total_sales"/></td>
+                                    <td class="label">Calculated Bonus:</td>
+                                    <td><t t-esc="rec.calculated_bonus"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </t>
             </t>
         </t>
+
         <style>
             .report-container {
-                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-family: Helvetica, Arial, sans-serif;
                 color: #333;
-                margin: 20px;
-                padding: 20px;
-                border: 1px solid #ddd;
-                border-radius: 5px;
+                margin: 20px 0;
+                padding: 10px 0;
             }
 
             .report-title {
-                font-size: 24px;
+                font-size: 22px;
                 font-weight: bold;
-                color: #007bff;
-                margin-bottom: 20px;
-                padding-bottom: 10px;
-                border-bottom: 2px solid #eee;
-            }
-
-            .general-info {
-                width: 100%;
-                border-collapse: collapse;
-                margin-bottom: 20px;
-            }
-
-            .general-info thead th {
-                background-color: #f8f9fa;
-                color: #495057;
-                padding: 10px;
-                text-align: left;
-                border-bottom: 2px solid #eee;
-            }
-
-            .general-info tbody td {
-                padding: 8px;
-                border-bottom: 1px solid #f2f2f2;
-            }
-
-            .general-info tbody td.label {
-                font-weight: bold;
-                width: 20%;
-            }
-
-            .general-info tbody td.value {
-                width: 30%;
+                color: #003366;
+                border-bottom: 2px solid #ccc;
+                padding-bottom: 8px;
+                margin-bottom: 15px;
             }
 
             .section-title {
+                font-size: 16px;
                 font-weight: bold;
-                font-size: 18px;
-                padding-bottom: 5px;
+                color: #444;
+                margin-top: 20px;
+                margin-bottom: 8px;
                 border-bottom: 1px solid #ddd;
-                margin-bottom: 10px;
+                padding-bottom: 4px;
+            }
+
+            .info-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 15px;
+            }
+
+            .info-table td {
+                padding: 6px 10px;
+                border: 1px solid #ddd;
+                vertical-align: top;
+            }
+
+            .info-table td.label {
+                font-weight: bold;
+                width: 25%;
+                background-color: #f9f9f9;
+            }
+
+            .info-table td.value {
+                width: 25%;
             }
         </style>
     </template>

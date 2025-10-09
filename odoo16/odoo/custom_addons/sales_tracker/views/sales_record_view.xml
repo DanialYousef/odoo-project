@@ -3,12 +3,13 @@
         <field name="name">Record Sale Plan Tree</field>
         <field name="model">sale.bonus.record</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree class="header_custom" decoration-danger="(is_canceled)">
                 <field name="plan_id"/>
                 <field name="partner_id"/>
                 <field name="total_sales"/>
                 <field name="calculated_bonus"/>
-                <field name="status" widget="badge" decoration-info="status == 'draft'" decoration-success="status == 'approved'"/>
+                <field name="is_canceled" invisible="1"/>
+                <field name="status" widget="badge" decoration-info="status == 'draft'" decoration-success="status == 'approved'" attrs="{'invisible' : [('is_canceled','=',True)]}"/>
             </tree>
         </field>
     </record>
@@ -18,20 +19,39 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="action_approved_state" type="object" string="Approved" class="btn-primary" attrs="{'invisible' : [('status','=','approved')]}"/>
-                    <field name="status" widget="statusbar"/>
+                    <field name="is_canceled" invisible="1"/>
+                    <button name="action_approved_state" type="object" string="Approved" class="btn-primary" attrs="{'invisible': ['|', ('is_canceled', '=', True), ('status', '=', 'approved')]}"/>
+                    <button name="action_archive_state" type="object" string="Cancel" class="btn-danger" attrs="{'invisible' : ['|' ,('calculated_bonus','!=', 0 ) , ('is_canceled', '=', True) ]}"/>
+                    <field name="status" widget="statusbar" attrs="{'invisible' : [('is_canceled','=',True)]}"/>
                 </header>
                 <sheet>
+                    <field name="is_canceled" invisible="1"/>
+                    <widget name="web_ribbon" title="Canceled" bg_color="text-bg-danger" attrs="{'invisible' : [('is_canceled','=',False)]}"/>
                     <group>
                         <group>
                             <field name="plan_id" attrs="{'readonly' : [('status','=','approved')]}"/>
                             <field name="partner_id" attrs="{'readonly' : [('status','in',('approved','draft'))]}"/>
                         </group>
                         <group>
+                            <field name="currency_id" invisible="1"/>
                             <field name="total_sales" attrs="{'readonly' : [('status','in',('approved','draft'))]}"/>
                             <field name="calculated_bonus" attrs="{'readonly' : [('status','=','approved')]}"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Accounting">
+                            <group>
+                                <group string="Journal Info">
+                                    <field name="journal_id" readonly="1"/>
+                                    <field name="moved_id" readonly="1"/>
+                                </group>
+                                <group string="Accounting Info">
+                                    <field name="expense_account_id" readonly="1"/>
+                                    <field name="payable_account_id" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
