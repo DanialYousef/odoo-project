@@ -9,23 +9,35 @@ class BonusPlan(models.Model):
 
 
     name = fields.Char(required=True ,string='Name')
-    start_date = fields.Date()
-    end_date = fields.Date()
+    start_date = fields.Date(default=fields.Date.today)
+    end_date = fields.Date(default=fields.Date.today)
     bonus_type = fields.Selection([
         ('percentage','Percentage'),
         ('target','Target'),
-    ], default='percentage')
+    ], default='target')
     bonus_value = fields.Monetary(string='Bonus Value' ,currency_field="currency_id" )
+    perc_value = fields.Char()
     status = fields.Selection([
         ('draft','Draft'),
         ('active','Active'),
         ('closed','Closed')
     ], default='draft')
     currency_id = fields.Many2one('res.currency', string='Currency' ,default=lambda self:self.env.company.currency_id.id)
-    expense_account_id =fields.Many2one('account.account' , string='Expense Account' , required=True )
-    payable_account_id = fields.Many2one('account.account' , string='Payable Account' , required=True )
-    journal_id = fields.Many2one('account.journal' , string='Journal' , required=True )
-    moved_id = fields.Many2one('account.move' , string='Journal Entry'  )
+    expense_account_id =fields.Many2one('account.account' , string='Expense Account' , required=True ,domain="[('account_type','=' ,'expense')]" )
+    payable_account_id = fields.Many2one('account.account' , string='Payable Account' , required=True ,domain="[('account_type','=' ,'liability_payable')]" )
+    journal_id = fields.Many2one('account.journal' , string='Journal' , required=True ,domain="[('type','=' ,'general')]" )
+    moved_id = fields.Many2one('account.move' , string='Journal Entry')
+
+    """ Monitor the symbol associated with the field """
+    @api.onchange('bonus_type' , 'perc_value')
+    def remove_currency(self):
+        for rec in self:
+            if rec.bonus_type == 'percentage':
+                pct_currency = self.env['res.currency'].search([('symbol', '=', '%')], limit=1)
+                if pct_currency:
+                    rec.currency_id = pct_currency.id
+            else:
+                rec.currency_id = self.env.company.currency_id.id
 
     """ Create a restriction that prevents duplication of an existing name """
     @api.constrains('name')
@@ -38,6 +50,17 @@ class BonusPlan(models.Model):
             if existing:
                 raise ValidationError(f"The name '{rec.name}' already exists.")
 
+    """Validation on start and end dates"""
+    @api.onchange('start_date' , 'end_date')
+    def check_date_value(self):
+        today_date = fields.Date.context_today(self)
+        for rec in self:
+            print(today_date)
+            print("+++++++++++++")
+            if rec.start_date > today_date:
+                raise ValidationError('Start date must be before or equal today date')
+            if rec.end_date < rec.start_date:
+                raise ValidationError('End date must be after or equal start date')
 
     """ Closed plan : Change status of plan to closed and Delete all record are connected with it  """
     def action_closed_plan(self):

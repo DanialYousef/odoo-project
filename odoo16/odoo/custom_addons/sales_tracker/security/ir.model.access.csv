@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_sale_bonus_plan,access_sale_bonus_plan,model_sale_bonus_plan,,1,1,1,1
-access_sale_bonus_record,access_sale_bonus_record,model_sale_bonus_record,,1,1,1,1
+access_sale_bonus_plan_person,access_sale_bonus_plan,model_sale_bonus_plan,sales_tracker.sales_tracker_sales_person,1,0,0,0
+access_sale_bonus_plan_manger,access_sale_bonus_plan,model_sale_bonus_plan,sales_tracker.sales_tracker_manger,1,1,1,1
+access_sale_bonus_record_person,access_sale_bonus_record,model_sale_bonus_record,sales_tracker.sales_tracker_sales_person,1,0,0,0
+access_sale_bonus_record_manger,access_sale_bonus_record,model_sale_bonus_record,sales_tracker.sales_tracker_manger,1,1,1,1
+

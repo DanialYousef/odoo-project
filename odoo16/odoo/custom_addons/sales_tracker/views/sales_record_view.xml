@@ -21,10 +21,21 @@
                 <header>
                     <field name="is_canceled" invisible="1"/>
                     <button name="action_approved_state" type="object" string="Approved" class="btn-primary" attrs="{'invisible': ['|', ('is_canceled', '=', True), ('status', '=', 'approved')]}"/>
-                    <button name="action_archive_state" type="object" string="Cancel" class="btn-danger" attrs="{'invisible' : ['|' ,('calculated_bonus','!=', 0 ) , ('is_canceled', '=', True) ]}"/>
+                    <button name="action_archive_state" type="object" string="Cancel" class="btn-danger" attrs="{'invisible': ['|', ('is_canceled', '=', True), ('status', '=', 'approved')]}"/>
                     <field name="status" widget="statusbar" attrs="{'invisible' : [('is_canceled','=',True)]}"/>
                 </header>
                 <sheet>
+                    <div name="button_box" class="oe_button_box">
+                       <button name="action_view_related_restriction"
+                               type="object"
+                               class="oe_stat_button"
+                               icon="fa-money"
+                               string="Related Restriction"
+                               attrs="{'invisible': [('moved_id', '=', False)]}">
+                           <field name="related_move_count" widget="statinfo"/>
+
+                       </button>
+                   </div>
                     <field name="is_canceled" invisible="1"/>
                     <widget name="web_ribbon" title="Canceled" bg_color="text-bg-danger" attrs="{'invisible' : [('is_canceled','=',False)]}"/>
                     <group>

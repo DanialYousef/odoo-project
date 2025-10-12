@@ -2,7 +2,7 @@
     <record id="sale_tracker_report" model="ir.actions.report">
         <field name="name">Bonus Record Report</field>
         <field name="model">sale.bonus.record</field>
-        <field name="report_type">qweb-pdf</field>
+        <field name="report_type">qweb-html</field>
         <field name="binding_model_id" ref="model_sale_bonus_record"/>
         <field name="binding_type">report</field>
         <field name="report_name">sales_tracker.bonus_report_template</field>
@@ -13,8 +13,6 @@
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="rec">
                     <div class="report-container">
-                        <h1 class="report-title">Sale Bonus Detail</h1>
-
                         <h2 class="section-title">Personal Information</h2>
                         <table class="info-table">
                             <tbody>
