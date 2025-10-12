@@ -19,7 +19,15 @@ class BonusRecord(models.Model):
     payable_account_id = fields.Many2one('account.account' , string='Payable Account' , required=True )
     journal_id = fields.Many2one('account.journal' , string='Journal' , required=True )
     moved_id = fields.Many2one('account.move' , string='Journal Entry' )
+    related_move_count = fields.Integer(string="Restrictions", compute='compute_related_move_count')
     is_canceled = fields.Boolean(string='Is Canceled' , default=False)
+
+    """Calculate the number of restrictions"""
+    @api.depends('moved_id')
+    def compute_related_move_count(self):
+        for rec in self:
+            rec.related_move_count = len(rec.moved_id)
+
 
     """ Approved plan : Check tha result by manger ,
      Update result and approved the plan to create financial restriction in Accounting module """
@@ -62,4 +70,18 @@ class BonusRecord(models.Model):
         print('inside action archive state')
         for rec in self:
             rec.is_canceled = True
+
+
+    """ Show restrictions """
+    def action_view_related_restriction(self):
+        print('inside action view related restriction')
+        self.ensure_one()
+        return {
+            'name': "Related Restrictions",
+            'type': "ir.actions.act_window",
+            'res_model': "account.move",
+            'view_mode': "tree,form",
+            'domain': [('id', 'in', self.moved_id.ids)],
+            'target': 'current',
+        }
 
