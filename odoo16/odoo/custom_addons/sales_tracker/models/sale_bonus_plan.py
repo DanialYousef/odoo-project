@@ -9,6 +9,11 @@ class BonusPlan(models.Model):
 
 
     name = fields.Char(required=True ,string='Name')
+    plan_type = fields.Selection([
+        ('inclusive', 'Inclusive'),
+        ('individual','Individual'),
+    ] , default='inclusive')
+    sale_person = fields.Many2one('res.users' , domain= lambda self : [('groups_id' , 'in' , self.env.ref('sales_tracker.sales_tracker_sales_person').id)])
     start_date = fields.Date(default=fields.Date.today)
     end_date = fields.Date(default=fields.Date.today)
     bonus_type = fields.Selection([
@@ -27,6 +32,11 @@ class BonusPlan(models.Model):
     payable_account_id = fields.Many2one('account.account' , string='Payable Account' , required=True ,domain="[('account_type','=' ,'liability_payable')]" )
     journal_id = fields.Many2one('account.journal' , string='Journal' , required=True ,domain="[('type','=' ,'general')]" )
     moved_id = fields.Many2one('account.move' , string='Journal Entry')
+    warehouse = fields.Selection([
+        ('all' , 'All'),
+        ('specific' , 'Specific ')
+    ] , default='all')
+    warehouse_id = fields.Many2one('stock.warehouse' , string='WareHouse')
 
     """ Monitor the symbol associated with the field """
     @api.onchange('bonus_type' , 'perc_value')
@@ -78,10 +88,35 @@ class BonusPlan(models.Model):
         print("inside action_compute_bonus")
         self.status = 'active'
         self.ensure_one()
-        start , end= self.start_date , self.end_date
-        domain = [('state','=','sale'),('date_order','>', start), ('date_order','<', end)]
+        start , end , wareHouse , salesperson= self.start_date , self.end_date , self.warehouse_id , self.sale_person
+        primary_domain = [('state','=','sale'),('date_order','>', start), ('date_order','<', end)]
+        secondary_domain = [
+            ('state','=','sale'),
+            ('date_order','>', start),
+            ('date_order','<', end) ,
+            ('warehouse_id','=',wareHouse.id)]
+
+        domain = []
+        if self.warehouse == 'all' :
+            if self.plan_type=='inclusive':
+                domain = primary_domain
+            else:
+                if not self.sale_person:
+                    raise ValidationError("You must specify a sale_person")
+                else:
+                    domain = primary_domain + [('user_id.partner_id' ,'=' , salesperson.partner_id.id)]
+        else:
+            if not self.warehouse_id:
+                raise ValidationError("You must specify a warehouse_id")
+            else:
+                if self.plan_type=='inclusive':
+                    domain = secondary_domain
+                else:
+                    domain= secondary_domain + [('user_id.partner_id' , '=' , salesperson.partner_id.id)]
+
         totals = {}
         print("_++++++++++++++++++++++++")
+        print("+++" + f"{domain}" + "++++++")
         orders = self.env['sale.order'].sudo().search(domain)
         print(orders)
         print("==========================")
@@ -93,6 +128,9 @@ class BonusPlan(models.Model):
                 continue
             totals.setdefault(parent.id , 0)
             totals[parent.id] += o.amount_total
+        print("==========================")
+        print(totals)
+        print("==========================")
 
         high_total = 10000
         min_total = 5000

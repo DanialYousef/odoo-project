@@ -10,6 +10,8 @@
                 <field name="bonus_type"/>
                 <field name="bonus_value"/>
                 <field name="status" widget="badge" decoration-info="status == 'draft'" decoration-success="status == 'active'" decoration-danger="status == 'closed'"/>
+                <field name="journal_id" optional="1"/>
+                <field name="warehouse" optional="1"/>
             </tree>
         </field>
     </record>
@@ -25,10 +27,24 @@
                  </header>
                 <sheet>
                     <div>
-                        <label for="name"/>
-                        <h1>
-                            <field name="name"/>
-                        </h1>
+                        <group string="Base Info">
+                            <group>
+                                <label for="plan_type"/>
+                                <h3>
+                                    <field name="plan_type" widget="radio"/>
+                                </h3>
+                            </group>
+                            <group>
+                                <label for="name"/>
+                                <h1>
+                                    <field name="name"/>
+                                </h1>
+                                <label for="sale_person" attrs="{'invisible' : [('plan_type' , '=' , 'inclusive')]}"/>
+                                <h3>
+                                    <field name="sale_person" attrs="{'invisible' : [('plan_type' , '=' , 'inclusive')]}"/>
+                                </h3>
+                            </group>
+                        </group>
                     </div>
                     <group>
                         <group string="Date Info">
@@ -51,6 +67,17 @@
                                 <group string="Accounts Info">
                                     <field name="expense_account_id" />
                                     <field name="payable_account_id"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Inventory">
+                            <group>
+                                <group>
+                                    <field name="warehouse" />
+                                    <field name="warehouse_id" attrs="{'invisible' : [('warehouse','=','all')]}"/>
+                                </group>
+                                <group>
+
                                 </group>
                             </group>
                         </page>
