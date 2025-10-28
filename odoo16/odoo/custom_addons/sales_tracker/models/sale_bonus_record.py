@@ -22,16 +22,26 @@ class BonusRecord(models.Model):
     related_move_count = fields.Integer(string="Restrictions", compute='compute_related_move_count')
     is_canceled = fields.Boolean(string='Is Canceled' , default=False)
 
-    """Calculate the number of restrictions"""
+
     @api.depends('moved_id')
     def compute_related_move_count(self):
+        """
+
+        Returns: Calculate the number of restrictions
+
+        """
         for rec in self:
             rec.related_move_count = len(rec.moved_id)
 
 
-    """ Approved plan : Check tha result by manger ,
-     Update result and approved the plan to create financial restriction in Accounting module """
     def action_approved_state(self):
+
+        """
+
+        Returns: Approved plan and Check tha result by manger ,
+         Update result and approved the plan to create financial restriction in Accounting module
+
+        """
         print(self.plan_id.id)
         for rec in self:
             try:
@@ -65,15 +75,25 @@ class BonusRecord(models.Model):
             except Exception as error:
                 raise ValidationError(str(error))
 
-    """ Change the value of column (is_canceled) of the open record """
+
     def action_archive_state(self):
+        """
+
+        Returns: Change the value of column (is_canceled) of the open record
+
+        """
         print('inside action archive state')
         for rec in self:
             rec.is_canceled = True
 
 
-    """ Show restrictions """
+
     def action_view_related_restriction(self):
+        """
+
+        Returns:  Show related restrictions
+
+        """
         print('inside action view related restriction')
         self.ensure_one()
         return {

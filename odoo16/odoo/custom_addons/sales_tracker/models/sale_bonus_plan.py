@@ -1,8 +1,13 @@
+from Tools.pynche.Main import docstring
 
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
-
 class BonusPlan(models.Model):
+    """
+       Manages sales bonus plans.
+       Handles configuration and computation of bonuses for salespersons
+       based on sales orders, warehouse filters, and plan type.
+    """
     _name = 'sale.bonus.plan'
     _description = 'Sales Bonus Plan'
     _inherit = ['mail.thread' , 'mail.activity.mixin' ]
@@ -13,7 +18,9 @@ class BonusPlan(models.Model):
         ('inclusive', 'Inclusive'),
         ('individual','Individual'),
     ] , default='inclusive')
-    sale_person = fields.Many2one('res.users' , domain= lambda self : [('groups_id' , 'in' , self.env.ref('sales_tracker.sales_tracker_sales_person').id)])
+    sale_person = fields.Many2one(
+        'res.users' ,
+        domain= lambda self : [('groups_id' , 'in' ,self.env.ref('sales_tracker.sales_tracker_sales_person').id)])
     start_date = fields.Date(default=fields.Date.today)
     end_date = fields.Date(default=fields.Date.today)
     bonus_type = fields.Selection([
@@ -38,9 +45,11 @@ class BonusPlan(models.Model):
     ] , default='all')
     warehouse_id = fields.Many2one('stock.warehouse' , string='WareHouse')
 
-    """ Monitor the symbol associated with the field """
     @api.onchange('bonus_type' , 'perc_value')
     def remove_currency(self):
+        """
+        Returns: % symbol or currency symbol next to field (bonus_value)
+        """
         for rec in self:
             if rec.bonus_type == 'percentage':
                 pct_currency = self.env['res.currency'].search([('symbol', '=', '%')], limit=1)
@@ -49,9 +58,11 @@ class BonusPlan(models.Model):
             else:
                 rec.currency_id = self.env.company.currency_id.id
 
-    """ Create a restriction that prevents duplication of an existing name """
     @api.constrains('name')
     def _check_name(self):
+        """
+        Returns: Restrict the name to prevent duplication
+        """
         for rec in self:
             existing = self.search([
                 ('name', '=', rec.name),
@@ -60,9 +71,11 @@ class BonusPlan(models.Model):
             if existing:
                 raise ValidationError(f"The name '{rec.name}' already exists.")
 
-    """Validation on start and end dates"""
     @api.onchange('start_date' , 'end_date')
     def check_date_value(self):
+        """
+        Returns: User error interface to Consideration the time rules
+        """
         today_date = fields.Date.context_today(self)
         for rec in self:
             print(today_date)
@@ -72,8 +85,10 @@ class BonusPlan(models.Model):
             if rec.end_date < rec.start_date:
                 raise ValidationError('End date must be after or equal start date')
 
-    """ Closed plan : Change status of plan to closed and Delete all record are connected with it  """
     def action_closed_plan(self):
+        """
+        Returns: Closed plan Change status of plan to closed and Delete all record are connected with it
+        """
         self.ensure_one()
         domain = [('plan_id.id','=',self.ids)]
         print(self.ids)
@@ -83,8 +98,12 @@ class BonusPlan(models.Model):
             rec.status = 'closed'
 
 
-    """ Compute Bonus : Get All Sale Orders and Calculate Bonsu Depending on Total sales of each representative individually """
     def action_compute_bonus(self):
+        """
+
+        Returns:Compute and generate bonus records for each salesperson.
+
+        """
         print("inside action_compute_bonus")
         self.status = 'active'
         self.ensure_one()
